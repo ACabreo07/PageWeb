@@ -7,11 +7,18 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <!-- HEADER -->
     <header class="header">
         <div class="header-container">
             <a href="#inicio" class="logo">
                 <span>Orca</span>Media
             </a>
+
+            <!-- Contenedor dinámico de Login -->
+            <div class="auth-container" id="authContainer">
+                <button id="authBtn" class="btn-auth">Iniciar Sesión</button>
+                <span id="userStatus" class="user-status"></span>
+            </div>
 
             <button class="nav-toggle" aria-label="Abrir menú" id="menuBtn">
                 <span class="bar"></span>
@@ -25,9 +32,30 @@
                 <a href="#ecotipos" class="nav-link">Ecotipos</a>
                 <a href="#amenazas" class="nav-link">Conservación</a>
                 <a href="#avistamientos" class="nav-link">Avistamientos</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
             </nav>
         </div>
     </header>
+
+    <!-- MODAL DE LOGIN (SIMULADO) -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3>ACCESO DE USUARIO</h3>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" required placeholder="Introduce 'admin'">
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" required placeholder="Introduce '1234'">
+                </div>
+                <button type="submit" class="btn-submit">INGRESAR</button>
+                <p id="loginError" class="error-msg"></p>
+            </form>
+        </div>
+    </div>
 
     <main>
         <!-- HERO -->
@@ -37,7 +65,9 @@
                     <h1>ORCA: EL DEPREDADOR APEX</h1>
                     <p>Domina los océanos con inteligencia superior, fuerza brutal y estrategias de caza complejas. Las orcas, también conocidas como ballenas asesinas, son los mamíferos marinos más poderosos e inteligentes del planeta. No son ballenas, sino los miembros más grandes de la familia de los delfines (Delphinidae), capaces de abatir desde pequeños arenques hasta grandes ballenas azules.</p>
                 </div>
-                <img src="imagenes/orcaHero.png" alt="Orca saltando fuera del agua" class="hero-img">
+                <div class="img-wrapper hero-wrapper">
+                    <img src="imagenes/orcaHero.png" alt="Orca saltando fuera del agua" class="hero-img">
+                </div>
             </div>
         </section>
 
@@ -49,7 +79,9 @@
                     <a href="#" data-info="Los machos pueden alcanzar hasta 10 metros de longitud y más de 10 toneladas de peso, con una aleta dorsal que llega a medir 1.8 metros de altura. Su característico patrón blanco y negro funciona como camuflaje disruptivo: desde arriba se confunden con la oscuridad del fondo, y desde abajo con la claridad de la superficie.">
                         <h3>ANATOMÍA: EL DISEÑO PERFECTO</h3>
                         <p class="subtitulo-bloque">Aletas gigantes, camuflaje disruptivo y más de 10 toneladas de fuerza muscular.</p>
-                        <img src="imagenes/orcaDimor.png" alt="Anatomía">
+                        <div class="img-wrapper">
+                            <img src="imagenes/orcaDimor.png" alt="Anatomía">
+                        </div>
                         <span class="btn-interactivo">SABER MÁS +</span>
                     </a>
                 </div>
@@ -58,7 +90,9 @@
                     <a href="#" data-info="Poseen el segundo cerebro más grande del reino animal, solo superado por el cachalote. Su corteza cerebral es extremadamente plegada y tienen un área llamada 'lóbulo paralímbico' mucho más desarrollada que en humanos, lo que sugiere una capacidad de procesamiento emocional y social sin precedentes.">
                         <h3>ECOLOCALIZACIÓN E INTELIGENCIA</h3>
                         <p class="subtitulo-bloque">Sonar biológico de precisión extrema y un cerebro altamente complejo.</p>
-                        <img src="imagenes/orcaSonar.png" alt="Ecolocalización">
+                        <div class="img-wrapper">
+                            <img src="imagenes/orcaSonar.png" alt="Ecolocalización">
+                        </div>
                         <span class="btn-interactivo">SABER MÁS +</span>
                     </a>
                 </div>
@@ -73,7 +107,9 @@
                     <a href="#" data-info="Viven en comunidades estables en el Noroeste del Pacífico. Se alimentan casi exclusivamente de salmón Chinook. Son altamente vocales y se organizan en matrilinajes liderados por la hembra de mayor edad.">
                         <h3>ECOTIPO 01: RESIDENTES</h3>
                         <p class="subtitulo-bloque">Especialistas en salmón, altamente vocales y con lazos matriarcales inquebrantables.</p>
-                        <img src="imagenes/residente.jpg" alt="Residentes">
+                        <div class="img-wrapper">
+                            <img src="imagenes/residente.jpg" alt="Residentes">
+                        </div>
                         <span class="btn-interactivo">SABER MÁS +</span>
                     </a>
                 </div>
@@ -82,7 +118,9 @@
                     <a href="#" data-info="Nómadas silenciosas que recorren las costas cazando focas, leones marinos y otros delfines. A diferencia de las residentes, viajan en grupos pequeños (2 a 6 individuos) para no ser detectadas por sus presas.">
                         <h3>ECOTIPO 02: TRANSEÚNTES (Bigg's)</h3>
                         <p class="subtitulo-bloque">Cazadoras silenciosas especializadas en mamíferos marinos y tácticas de emboscada.</p>
-                        <img src="imagenes/transeunte.jpg" alt="Transeúntes">
+                        <div class="img-wrapper">
+                            <img src="imagenes/transeunte.jpg" alt="Transeúntes">
+                        </div>
                         <span class="btn-interactivo">SABER MÁS +</span>
                     </a>
                 </div>
@@ -91,17 +129,20 @@
                     <a href="#" data-info="Habitan lejos de la costa, en el talud continental. Se cree que su dieta principal son los tiburones y peces pelágicos de gran tamaño. Sus dientes suelen estar muy desgastados por la piel abrasiva de los tiburones.">
                         <h3>ECOTIPO 03: MAR ABIERTO (Offshore)</h3>
                         <p class="subtitulo-bloque">Especialistas en tiburones que habitan en aguas profundas lejos de la costa.</p>
-                        <img src="imagenes/offshore.jpg" alt="Offshore">
+                        <div class="img-wrapper">
+                            <img src="imagenes/offshore.jpg" alt="Offshore">
+                        </div>
                         <span class="btn-interactivo">SABER MÁS +</span>
                     </a>
                 </div>
-
 
                 <div class="bloque-ecotipo">
                     <a href="#" data-info="Son las orcas más grandes del mundo, alcanzando casi los 10 metros. Viven en aguas abiertas de la Antártida y su presa principal son las ballenas minke, a las que persiguen hasta el agotamiento.">
                         <h3>ECOTIPO 05: TIPO A</h3>
                         <p class="subtitulo-bloque">Gigantes antárticos especializados en la caza de otras ballenas minke.</p>
-                        <img src="imagenes/TypeA.jpg" alt="Tipo A">
+                        <div class="img-wrapper">
+                            <img src="imagenes/TypeA.jpg" alt="Tipo A">
+                        </div>
                         <span class="btn-interactivo">SABER MÁS +</span>
                     </a>
                 </div>
@@ -110,7 +151,9 @@
                     <a href="#" data-info="Famosas por su técnica de 'lavado de ola'. Trabajan en equipo para crear olas coordinadas que derriban a las focas de los bloques de hielo hacia el agua, donde otras orcas esperan para capturarlas.">
                         <h3>ECOTIPO 06: TIPO B (Pack Ice)</h3>
                         <p class="subtitulo-bloque">Expertas en caza cooperativa creando olas para derribar presas del hielo.</p>
-                        <img src="imagenes/TypeB.jpg" alt="Tipo B">
+                        <div class="img-wrapper">
+                            <img src="imagenes/TypeB.jpg" alt="Tipo B">
+                        </div>
                         <span class="btn-interactivo">SABER MÁS +</span>
                     </a>
                 </div>
@@ -119,15 +162,20 @@
                     <a href="#" data-info="El ecotipo más pequeño (hasta 6 metros). Habitan principalmente en el Mar de Ross y se especializan en la pesca del bacalao antártico bajo las placas de hielo.">
                         <h3>ECOTIPO 07: TIPO C</h3>
                         <p class="subtitulo-bloque">Las más pequeñas de la especie, especialistas en pesca bajo el hielo antártico.</p>
-                        <img src="imagenes/TypeC.jpg" alt="Tipo C">
+                        <div class="img-wrapper">
+                            <img src="imagenes/TypeC.jpg" alt="Tipo C">
+                        </div>
                         <span class="btn-interactivo">SABER MÁS +</span>
                     </a>
                 </div>
+
                 <div class="bloque-ecotipo">
                     <a href="#" data-info="Identificadas recientemente, tienen una morfología única con una mancha ocular muy pequeña y una cabeza más redondeada. Habitan en las aguas más frías y turbulentas del Océano Austral, cerca del Círculo Polar Antártico.">
                         <h3>ECOTIPO 04: TIPO D</h3>
                         <p class="subtitulo-bloque">La variante más misteriosa con morfología única y hábitat subantártico.</p>
-                        <img src="imagenes/TypeD.jpg" alt="Tipo D">
+                        <div class="img-wrapper">
+                            <img src="imagenes/TypeD.jpg" alt="Tipo D">
+                        </div>
                         <span class="btn-interactivo">SABER MÁS +</span>
                     </a>
                 </div>
@@ -142,7 +190,9 @@
                     <a href="#" data-info="Sustancias como los PCB (bifenilos policlorados) se acumulan en su tejido adiposo. Al estar en la cima de la cadena alimenticia, las orcas reciben dosis masivas de toxinas que provocan esterilidad y fallos en el sistema inmunológico.">
                         <h3>01. CONTAMINACIÓN QUÍMICA</h3>
                         <p class="subtitulo-bloque">Toxinas persistentes que amenazan la fertilidad de las poblaciones globales.</p>
-                        <img src="imagenes/quimica.png" alt="Contaminación">
+                        <div class="img-wrapper">
+                            <img src="imagenes/quimica.png" alt="Contaminación">
+                        </div>
                         <span class="btn-interactivo">SABER MÁS +</span>
                     </a>
                 </div>
@@ -151,7 +201,9 @@
                     <a href="#" data-info="Las orcas son animales sociales que viajan hasta 160 km al día. En tanques de hormigón sufren de estrés crónico, colapso de la aleta dorsal y comportamientos estereotipados. Su esperanza de vida se reduce drásticamente fuera del océano.">
                         <h3>02. CAUTIVERIO COMERCIAL</h3>
                         <p class="subtitulo-bloque">El impacto psicológico y físico de vivir en espacios reducidos y artificiales.</p>
-                        <img src="imagenes/cautiverio.png" alt="Cautiverio">
+                        <div class="img-wrapper">
+                            <img src="imagenes/cautiverio.png" alt="Cautiverio">
+                        </div>
                         <span class="btn-interactivo">SABER MÁS +</span>
                     </a>
                 </div>
@@ -160,7 +212,9 @@
                     <a href="#" data-info="El ruido de buques de carga, sonares militares y prospecciones petroleras 'ciega' la ecolocalización de las orcas, impidiéndoles cazar y comunicarse con su familia en un mundo oceánico cada vez más ruidoso.">
                         <h3>03. CONTAMINACIÓN ACÚSTICA</h3>
                         <p class="subtitulo-bloque">El ruido industrial que interfiere con su sentido más vital: el oído.</p>
-                        <img src="imagenes/auditivo.png" alt="Ruido">
+                        <div class="img-wrapper">
+                            <img src="imagenes/auditivo.png" alt="Ruido">
+                        </div>
                         <span class="btn-interactivo">SABER MÁS +</span>
                     </a>
                 </div>
@@ -175,7 +229,9 @@
                     <a href="#" data-info="Considerado el mejor lugar del mundo para ver orcas residentes. De junio a septiembre, los grupos familiares siguen las migraciones de salmón a través del estrecho de Johnstone.">
                         <h3>01. ISLA DE VANCOUVER, CANADÁ</h3>
                         <p class="subtitulo-bloque">Aguas ricas en nutrientes donde los matrilinajes residentes son los protagonistas.</p>
-                        <img src="imagenes/Vancouver.png" alt="Canadá">
+                        <div class="img-wrapper">
+                            <img src="imagenes/Vancouver.png" alt="Canadá">
+                        </div>
                         <span class="btn-interactivo">SABER MÁS +</span>
                     </a>
                 </div>
@@ -184,7 +240,9 @@
                     <a href="#" data-info="Durante el invierno ártico, cientos de orcas se reúnen en los fiordos noruegos para realizar una caza cooperativa de arenques bajo las luces de la aurora boreal.">
                         <h3>02. TROMSØ, NORUEGA</h3>
                         <p class="subtitulo-bloque">Caza masiva de arenques en los fiordos bajo el sol de medianoche o auroras.</p>
-                        <img src="imagenes/Noruega.png" alt="Noruega">
+                        <div class="img-wrapper">
+                            <img src="imagenes/Noruega.png" alt="Noruega">
+                        </div>
                         <span class="btn-interactivo">SABER MÁS +</span>
                     </a>
                 </div>
@@ -193,14 +251,52 @@
                     <a href="#" data-info="Famosa por el 'encallamiento intencional'. Las orcas se lanzan literalmente a la arena de la playa para capturar crías de lobos marinos, una técnica única que solo unos pocos individuos conocen.">
                         <h3>03. PENÍNSULA VALDÉS, ARGENTINA</h3>
                         <p class="subtitulo-bloque">La técnica de caza más arriesgada y espectacular del mundo animal.</p>
-                        <img src="imagenes/argentina.png" alt="Argentina">
+                        <div class="img-wrapper">
+                            <img src="imagenes/argentina.png" alt="Argentina">
+                        </div>
                         <span class="btn-interactivo">SABER MÁS +</span>
                     </a>
                 </div>
             </div>
         </section>
+
+        <!-- CONTACTO -->
+        <section id="contacto">
+            <h2 class="section-title">Contacto y Comunidad</h2>
+            <div class="contacto-container">
+                <div class="contacto-info">
+                    <h3>ÚNETE A LA RED</h3>
+                    <p>Colabora con proyectos internacionales de fotoidentificación y reporta avistamientos científicos.</p>
+                    
+                    <div class="external-links">
+                        <h4>Enlaces de Interés Internacional:</h4>
+                        <a href="https://www.orcanetwork.org" target="_blank" rel="noopener">Orca Network (USA) &rarr;</a>
+                        <a href="https://whales.org" target="_blank" rel="noopener">Whale and Dolphin Conservation &rarr;</a>
+                        <a href="https://www.orcaweb.org.uk" target="_blank" rel="noopener">ORCA Marine Conservation (UK) &rarr;</a>
+                    </div>
+                </div>
+
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="contactName">Nombre:</label>
+                        <input type="text" id="contactName" required placeholder="Tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Email:</label>
+                        <input type="email" id="contactEmail" required placeholder="tu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Mensaje / Reporte de avistamiento:</label>
+                        <textarea id="contactMessage" rows="5" required placeholder="Escribe aquí los detalles del avistamiento..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">ENVIAR DATOS</button>
+                    <p id="formFeedback" class="success-msg"></p>
+                </form>
+            </div>
+        </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="pie-pagina">
         <div class="footer-contenido">
             <p>© 2026 MUNDO ORCA - DEPREDADORES ALFA DEL OCÉANO</p>
